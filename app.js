@@ -50,6 +50,17 @@ app.post("/blogs", function(req, res){
     
 })
 
+//SHOW ROUTE
+app.get("/blogs/:id", function(req, res){
+    Blog.findById(id, function(err, foundBlog){
+        if(err){
+            res.redirect("/blogs")
+        } else {
+            res.render("show", {blog: foundBlog})
+        }
+    })
+})
+
 //title
 //image
 //body
