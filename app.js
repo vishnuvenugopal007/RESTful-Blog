@@ -20,6 +20,20 @@ var Blog = mongoose.model('Blog', blogSchema)
 
 //Restful Routes
 
+//INDEX ROUTE
+app.get("/blogs", function(req,res){
+    Blog.find({}, function(err, blogs){
+        if(err){
+            console.log("ERROR!")
+        } else {
+            res.render("index", {blogs: blogs})
+        }
+    })
+})
+
+//NEW ROUTE
+
+
 //title
 //image
 //body
